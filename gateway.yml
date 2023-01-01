@@ -19,32 +19,32 @@ spring:
           uri: lb://service-A
           predicates:
             - Path=/srva/**
-          filters:
-            - RewritePath=/srva/(?<segment>.*), /$\{segment}
-            - name: Hystrix
-              args:
-                name: monitor-srvA
-                fallbackUri: forward:/fallback/serviceA
+          # filters:
+          #   - RewritePath=/srva/(?<segment>.*), /$\{segment}
+          #   - name: Hystrix
+          #     args:
+          #       name: monitor-srvA
+          #       fallbackUri: forward:/fallback/serviceA
         - id: ServiceB
           uri: lb://service-B
           predicates:
             - Path=/srvb/**
-          filters:
-            - RewritePath=/srvb/(?<segment>.*), /$\{segment}
-            - name: Hystrix
-              args:
-                name: monitor-srvB
-                fallbackUri: forward:/fallback/serviceB
+          # filters:
+          #   - RewritePath=/srvb/(?<segment>.*), /$\{segment}
+          #   - name: Hystrix
+          #     args:
+          #       name: monitor-srvB
+          #       fallbackUri: forward:/fallback/serviceB
         - id: ServiceWeather
           uri: lb://service-Weather
           predicates:
             - Path=/weather/**
-          filters:
-            - RewritePath=/weather/(?<segment>.*), /$\{segment}
-            - name: Hystrix
-              args:
-                name: monitor-weather
-                fallbackUri: forward:/fallback/serviceWeather
+          # filters:
+          #   - RewritePath=/weather/(?<segment>.*), /$\{segment}
+          #   - name: Hystrix
+          #     args:
+          #       name: monitor-weather
+          #       fallbackUri: forward:/fallback/serviceWeather
         - id: MQActivityService
           uri: lb://activity
           predicates:
@@ -58,13 +58,13 @@ spring:
       config:
         management:
           enabled: true
-management:
-  security:
-    enabled: false
-  endpoints:
-    web:
-      exposure:
-        include: hystrix.stream, info, health
-hystrix:
-  dashboard:
-    proxy-stream-allow-list: "*"
+# management:
+#   security:
+#     enabled: false
+#   endpoints:
+#     web:
+#       exposure:
+#         include: hystrix.stream, info, health
+# hystrix:
+#   dashboard:
+#     proxy-stream-allow-list: "*"
