@@ -16,7 +16,7 @@ spring:
           #     name: monitor-books
           #     fallbackUri: forward:/fallback/serviceBooks
         - id: serviceA
-          uri: lb://service-A
+          uri: lb://service-a
           predicates:
             - Path=/srva/**
           # filters:
@@ -26,7 +26,7 @@ spring:
           #       name: monitor-srvA
           #       fallbackUri: forward:/fallback/serviceA
         - id: ServiceB
-          uri: lb://service-B
+          uri: lb://service-b
           predicates:
             - Path=/srvb/**
           # filters:
